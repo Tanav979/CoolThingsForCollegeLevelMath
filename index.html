@@ -1,75 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Application Hub</title>
-    
-    <!-- IMPORTANT: This must be the very first script loaded in the head -->
-    <script src="coi-serviceworker.js"></script>
-
+    <title>Workbook Portal</title>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: #121212;
-            color: #ffffff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-        }
-        button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #0f0f11; }
+        iframe { border: none; width: 100%; height: 100%; }
     </style>
 </head>
 <body>
-
-    <h1>Application Dashboard</h1>
-    <button onclick="launchApp()">Launch Application</button>
-
-    <script>
-    function launchApp() {
-        // 1. Open the clean blank window
-        var win = window.open("about:blank", "_blank");
-        
-        if (!win) {
-            alert("Please allow popups to launch this application.");
-            return;
-        }
-
-        // 2. Clear out margins on the blank tab
-        win.document.body.style.margin = "0";
-        win.document.body.style.height = "100vh";
-        win.document.body.style.overflow = "hidden";
-        win.document.body.style.background = "#000";
-
-        // 3. Inject the application iframe safely
-        var iframe = win.document.createElement("iframe");
-        iframe.style.border = "none";
-        iframe.style.width = "100%";
-        iframe.style.height = "100%";
-        iframe.src = "https://vel.gg";
-        
-        // 4. Pass down cross-origin isolated permission to the subframe
-        iframe.setAttribute("allow", "cross-origin-isolated");
-
-        win.document.body.appendChild(iframe);
-    }
-    </script>
-
+    <!-- This loads the official pre-compiled GUST client directly into your deployment -->
+    <iframe src="https://github.io"></iframe>
 </body>
 </html>
